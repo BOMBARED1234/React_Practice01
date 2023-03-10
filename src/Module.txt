@@ -175,3 +175,24 @@ function App() {
     </div>
   );
 }
+
+
+
+
+function App() {
+  return (
+    <div className="App">
+      <Router>
+        <div>
+          <Navbar />
+        </div>
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/menu" element={<Menu />} />
+          <Route path="/contact" element={<Contact Page />} />
+          <Route path="*" element={<h1>PAGE NOT FOUND</h1>} />
+        </Routes>
+      </Router>
+    </div>
+  );
+}
