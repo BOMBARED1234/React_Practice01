@@ -123,13 +123,6 @@ function App() {
 
 
 
-
-
-
-
-
-
-
 function App() {
   const [name, setName] = useState("");
 
@@ -159,3 +152,26 @@ function App() {
 
 
 
+
+function App() {
+  const [type, setType] = useState("");
+
+  const fetchData = (excuse) => {
+    Axios.get(`https://excuser-three.vercel.app/v1/excuse/${excuse}`).then(
+      (res) => {
+        setType(res.data[0].excuse);
+        console.log(res.data[0].excuse);
+      }
+    );
+  };
+
+  return (
+    <div className="App">
+      <h1>Generate An Excuse</h1>
+      <button onClick={() => fetchData("party")}>Party</button>
+      <button onClick={() => fetchData("family")}>Family</button>
+      <button onClick={() => fetchData("office")}>Office</button>
+      <h1>{type}</h1>
+    </div>
+  );
+}
